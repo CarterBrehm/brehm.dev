@@ -1,0 +1,25 @@
+/****** INPUT PINS ******/
+PIN 2 = iom;
+PIN 3 = psen;
+PIN 4 = wr;
+PIN 5 = a15;
+PIN 6 = a14;
+
+/****** OUTPUT PINS ******/
+PIN 19 = cs_rom1;
+PIN 18 = cs_rom2;
+PIN 17 = cs_ram1;
+PIN 16 = cs_ram2;
+PIN 15 = cs_adc;
+PIN 14 = cs_lcd;
+PIN 13 = cd_rtc;
+PIN 12 = cs_seg;
+
+cs_rom1 = !(!psen & !iom & !a15);
+cs_rom2 = !(!psen & !iom & a15);
+cs_ram1 = !(psen & !iom & !a15);
+cs_ram2 = !(psen & !iom & a15);
+cs_adc = !(psen & iom & a15 & a14);
+cs_lcd = !(psen & iom & !a15 & a14);
+cd_rtc = !(psen & iom & !a15 & !a14);
+cs_seg = (psen & iom & a15 & !a14 & !wr);
