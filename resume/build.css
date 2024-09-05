@@ -871,3 +871,13 @@ a {
   border-bottom: 1px solid #000;
   padding-bottom: 0px;
 }
+
+@media print {
+  a {
+  	border-bottom: none;
+  }
+  .hide-print {
+		display: none;
+	}
+}
+
